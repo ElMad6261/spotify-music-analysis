@@ -1,0 +1,23 @@
+CREATE TABLE IF NOT EXISTS spotify_tracks (
+    track_id             VARCHAR(50),
+    track_name           VARCHAR(255),
+    artists              VARCHAR(255),
+    album_name           VARCHAR(255),
+    track_genre          VARCHAR(100),
+    popularity           INTEGER,
+    danceability         FLOAT,
+    energy               FLOAT,
+    loudness             FLOAT,
+    tempo                FLOAT,
+    valence              FLOAT,
+    acousticness         FLOAT,
+    speechiness          FLOAT,
+    instrumentalness     FLOAT,
+    liveness             FLOAT,
+    explicit             INTEGER,
+    duration_min         FLOAT,
+    cluster_id           INTEGER,
+    cluster_name         VARCHAR(100),
+    energy_dance_score   FLOAT,
+    acoustic_vs_energy   FLOAT
+);
