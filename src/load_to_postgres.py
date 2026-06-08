@@ -2,7 +2,7 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 
 DB_USER     = "postgres"
-DB_PASSWORD = "lol123"
+DB_PASSWORD = "contraseña"
 DB_HOST     = "localhost"
 DB_PORT     = "5432"
 DB_NAME     = "spotify_analysis"
