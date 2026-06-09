@@ -316,6 +316,13 @@ st.markdown("""
     color: #FFFFFF !important;
     font-weight: 500 !important;
     font-size: 14px !important;
+            
+}
+            /* ── Botón para abrir/cerrar sidebar ─────────── */
+[data-testid="collapsedControl"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 </style>
 """, unsafe_allow_html=True)
