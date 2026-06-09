@@ -30,28 +30,83 @@ st.markdown("""
         padding-bottom: 2rem !important;
     }
 
-    /* ── Ocultar header y elementos de UI ─────────── */
-    [data-testid="stHeader"],
-    header[data-testid="stHeader"],
-    [data-testid="stToolbar"],
-    [data-testid="stDecoration"],
-    [data-testid="stStatusWidget"],
-    button[aria-label="Keyboard shortcuts"],
-    #MainMenu,
-    footer {
-        display: none !important;
-        visibility: hidden !important;
-        height: 0 !important;
-    }
+   
+    /* ── Ocultar UI secundaria, pero NO el header ─────────── */
+[data-testid="stDecoration"],
+[data-testid="stStatusWidget"],
+button[aria-label="Keyboard shortcuts"],
+#MainMenu,
+footer {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+}
+
+/* Mantener el toolbar visible pero sin fondo (solo para el botón de abrir) */
+[data-testid="stToolbar"] {
+    background: transparent !important;
+    height: auto !important;
+}
+            
+[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+/* ── Botón hamburguesa (abrir/cerrar sidebar) ───── */
+/* Visibilidad forzada */
+[data-testid="collapsedControl"],
+[data-testid="stSidebarCollapsedControl"],
+button[kind="header"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 999999 !important;
+}
+
+/* Estilo visual */
+[data-testid="collapsedControl"],
+[data-testid="stSidebarCollapsedControl"] {
+    background: #1ED760 !important;
+    border-radius: 8px !important;
+    padding: 4px !important;
+    box-shadow: 0 0 12px rgba(30, 215, 96, 0.5) !important;
+    transition: all 0.2s ease !important;
+    width: 34px !important;
+    height: 34px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Color del icono (las tres rayitas o la X) */
+[data-testid="collapsedControl"] svg,
+[data-testid="stSidebarCollapsedControl"] svg {
+    color: #0E1117 !important;
+    fill: #0E1117 !important;
+    stroke: #0E1117 !important;
+}
+
+/* Líneas del icono específicamente */
+[data-testid="collapsedControl"] svg line,
+[data-testid="stSidebarCollapsedControl"] svg line,
+[data-testid="collapsedControl"] svg path,
+[data-testid="stSidebarCollapsedControl"] svg path {
+    stroke: #0E1117 !important;
+}
+
+/* Hover */
+[data-testid="collapsedControl"]:hover,
+[data-testid="stSidebarCollapsedControl"]:hover {
+    background: #23F56B !important;
+    box-shadow: 0 0 20px rgba(35, 245, 107, 0.7) !important;
+    transform: scale(1.08);
+}
 
     /* ── Sidebar ──────────────────────────────────── */
-    [data-testid="stSidebar"] {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        background-color: #13161F !important;
-        border-right: 1px solid #21263A !important;
-    }
+   [data-testid="stSidebar"] {
+    background-color: #13161F !important;
+    border-right: 1px solid #21263A !important;
+}
     [data-testid="stSidebar"] p,
     [data-testid="stSidebar"] span,
     [data-testid="stSidebar"] label,
@@ -318,12 +373,41 @@ st.markdown("""
     font-size: 14px !important;
             
 }
-            /* ── Botón para abrir/cerrar sidebar ─────────── */
-[data-testid="collapsedControl"] {
+
+            /* Selector universal por aria-label (funciona en todas las versiones recientes) */
+button[aria-label="Open sidebar"],
+button[aria-label="Close sidebar"] {
+    background: #1ED760 !important;
+    border-radius: 8px !important;
+    padding: 4px !important;
+    box-shadow: 0 0 12px rgba(30, 215, 96, 0.5) !important;
+    width: 34px !important;
+    height: 34px !important;
     display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
+
+button[aria-label="Open sidebar"] svg,
+button[aria-label="Close sidebar"] svg {
+    color: #0E1117 !important;
+    fill: #0E1117 !important;
+    stroke: #0E1117 !important;
+}
+
+button[aria-label="Open sidebar"] svg line,
+button[aria-label="Close sidebar"] svg line,
+button[aria-label="Open sidebar"] svg path,
+button[aria-label="Close sidebar"] svg path {
+    stroke: #0E1117 !important;
+}
+
+button[aria-label="Open sidebar"]:hover,
+button[aria-label="Close sidebar"]:hover {
+    background: #23F56B !important;
+    box-shadow: 0 0 20px rgba(35, 245, 107, 0.7) !important;
+    transform: scale(1.08);
+}  
 </style>
 """, unsafe_allow_html=True)
 
