@@ -55,8 +55,7 @@ footer {
 /* ── Botón hamburguesa (abrir/cerrar sidebar) ───── */
 /* Visibilidad forzada */
 [data-testid="collapsedControl"],
-[data-testid="stSidebarCollapsedControl"],
-button[kind="header"] {
+[data-testid="stSidebarCollapsedControl"] {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -108,12 +107,14 @@ button[kind="header"] {
     border-right: 1px solid #21263A !important;
 }
     [data-testid="stSidebar"] p,
-    [data-testid="stSidebar"] span,
-    [data-testid="stSidebar"] label,
-    [data-testid="stSidebar"] div {
-        color: #A9AEBE !important;
-        font-family: 'DM Sans', sans-serif !important;
-    }
+[data-testid="stSidebar"] label {
+    color: #A9AEBE !important;
+    font-family: 'DM Sans', sans-serif !important;
+}
+
+[data-testid="stSidebar"] div {
+    color: #A9AEBE !important;
+}
     [data-testid="stSidebar"] h1,
     [data-testid="stSidebar"] h2,
     [data-testid="stSidebar"] h3 {
@@ -408,6 +409,49 @@ button[aria-label="Close sidebar"]:hover {
     box-shadow: 0 0 20px rgba(35, 245, 107, 0.7) !important;
     transform: scale(1.08);
 }  
+
+
+            /* Mantener visible el botón de abrir/cerrar sidebar */
+button[aria-label="Open sidebar"],
+button[aria-label="Close sidebar"],
+[data-testid="collapsedControl"],
+[data-testid="stSidebarCollapsedControl"] {
+    background: #1ED760 !important;
+    border-radius: 50% !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 6px !important;
+    box-shadow: 0 0 12px rgba(30, 215, 96, 0.55) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 999999 !important;
+}
+
+/* Evitar que el icono interno se convierta en texto */
+button[aria-label="Open sidebar"] span,
+button[aria-label="Close sidebar"] span,
+[data-testid="collapsedControl"] span,
+[data-testid="stSidebarCollapsedControl"] span {
+    font-family: "Material Symbols Rounded", "Material Icons", sans-serif !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+    text-transform: none !important;
+}
+
+/* Ocultar botón de atajos del teclado */
+button[aria-label="Keyboard shortcuts"] {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
