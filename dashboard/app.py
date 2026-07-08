@@ -367,6 +367,46 @@ footer {
     font-weight: 500 !important;
     font-size: 14px !important;
 }
+        
+            /* ===== Selectbox (texto, búsqueda y opciones) ===== */
+
+/* Texto seleccionado dentro del select */
+.stSelectbox div[data-baseweb="select"] > div {
+    color: #FFFFFF !important;
+}
+
+/* Input de búsqueda cuando escribes */
+.stSelectbox input {
+    color: #FFFFFF !important;
+    caret-color: #1ED760 !important;
+}
+
+/* Placeholder del buscador */
+.stSelectbox input::placeholder {
+    color: #A9AEBE !important;
+}
+
+/* Fondo del menú desplegable */
+div[data-baseweb="popover"] {
+    background-color: #161B27 !important;
+}
+
+/* Opciones del menú */
+div[role="option"] {
+    background-color: #161B27 !important;
+    color: #FFFFFF !important;
+}
+
+/* Hover sobre las opciones */
+div[role="option"]:hover {
+    background-color: #1F2533 !important;
+}
+
+/* Opción seleccionada */
+div[aria-selected="true"] {
+    background-color: rgba(30,215,96,0.2) !important;
+    color: #1ED760 !important;
+}
             /* ── Label del input de búsqueda ───────────────────────────── */
 [data-testid="stTextInput"] label {
     color: #FFFFFF !important;
