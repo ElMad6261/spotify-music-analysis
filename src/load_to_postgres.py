@@ -1,14 +1,13 @@
+import os
 import pandas as pd
+from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
 
-DB_USER     = "postgres"
-DB_PASSWORD = "contraseña"
-DB_HOST     = "localhost"
-DB_PORT     = "5432"
-DB_NAME     = "spotify_analysis"
+load_dotenv()
 
 engine = create_engine(
-    f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+    f"postgresql+psycopg2://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}"
+    f"@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
 )
 
 df = pd.read_csv('data/processed/dataset_clustered.csv')
